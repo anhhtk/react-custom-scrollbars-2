@@ -17,11 +17,6 @@ export default function getScrollbarWidth(cacheEnabled = true) {
         document.body.appendChild(div);
         scrollbarWidth = (div.offsetWidth - div.clientWidth);
         document.body.removeChild(div);
-
-        // fix scrollbars is missing in Mac
-        if (scrollbarWidth === 0) {
-            scrollbarWidth = 15;
-        } 
     } else {
         scrollbarWidth = 0;
     }
