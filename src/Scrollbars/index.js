@@ -512,6 +512,7 @@ export default class Scrollbars extends Component {
             disabled,
             ...props
         } = this.props;
+        console.log(this.props)
         /* eslint-enable no-unused-vars */
 
         const { didMountUniversal } = this.state;
