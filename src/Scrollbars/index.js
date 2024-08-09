@@ -509,6 +509,7 @@ export default class Scrollbars extends Component {
             autoHeightMax,
             style,
             children,
+            disabled,
             ...props
         } = this.props;
         /* eslint-enable no-unused-vars */
@@ -548,6 +549,9 @@ export default class Scrollbars extends Component {
             // Override
             ...((universal && !didMountUniversal) && viewStyleUniversalInitial)
         };
+        if (disabled) {
+            viewStyle.overflow = 'hidden';
+        }
 
         const trackAutoHeightStyle = {
             transition: `opacity ${autoHideDuration}ms`,
@@ -626,6 +630,7 @@ Scrollbars.propTypes = {
     universal: PropTypes.bool,
     style: PropTypes.object,
     children: PropTypes.node,
+    disabled: PropTypes.bool,
 };
 
 Scrollbars.defaultProps = {
@@ -644,4 +649,5 @@ Scrollbars.defaultProps = {
     autoHeightMin: 0,
     autoHeightMax: 200,
     universal: false,
+    disabled: false,
 };
